@@ -27,7 +27,7 @@ int main() {
     return 0;
 }
 
-int* allocate(int* ptr, int size){
+int* allocate(int* ptr, int size){ // Allocates memory to an array. 
     ptr = (int*)malloc(size*sizeof(int));
     if(ptr == NULL){
         printf("Allocation Unsuccessful\n");
@@ -38,7 +38,7 @@ int* allocate(int* ptr, int size){
     return ptr;
 }
 
-void insert(int* arr, int size){
+void insert(int* arr, int size){ // Insert function for the array. 
     int num;
     for(int i = 0; i < size ; i++){
         printf("Please insert a number: ");
@@ -47,7 +47,7 @@ void insert(int* arr, int size){
     }
 }
 
-void printList(int arr[], int size){
+void printList(int arr[], int size){ // Prints all items in sorted array, removing repeating items. 
     // Check for repetition first. 
     int* newArr = (int*)malloc(size*sizeof(int));
     if(newArr == NULL){
@@ -76,7 +76,7 @@ void swap(int* i, int* j){
     *j = temp;
 }
 
-void quicksort(int arr[], int low, int high){
+void quicksort(int arr[], int low, int high){ // Quicksort algorithm, choosing pivot to be the last element. 
     if(low < high){
         int pi = partition(arr, low, high);
 
@@ -97,6 +97,6 @@ int partition(int arr[], int low, int high){
             swap(&arr[i], &arr[j]);
         }
     }
-    swap(&arr[i+1], &arr[high]);// swap arr[i+1] and arr[high]
+    swap(&arr[i+1], &arr[high]);
     return(i+1);
 }
